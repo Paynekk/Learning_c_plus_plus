@@ -1,9 +1,0 @@
-{
-  "files.associations": {
-    "*.jsx": "javascriptreact",
-    "*.erb": "html",
-    "*.gohtml": "gohtml",
-    "*.html": "html",
-    "ostream": "cpp"
-  }
-}
