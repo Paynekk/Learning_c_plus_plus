@@ -15,9 +15,9 @@ int main() {
 
    string linea, s;
     getline(cin, linea);
-    while (linea != "---") {
-        s += linea[0];
-        getline(cin, linea);
+    while (linea != "---"){ // si es distinto de 
+        s += linea[0]; // guarda la primera letra de cada linea en este caso ACROSTIC
+        getline(cin, linea); // vuele a ejecutarse getline para seguir leyendo la linea de abajo
     }
     cout << s << endl; 
 
