@@ -13,7 +13,13 @@ Concerned with what's defined
 using namespace std;
 int main() {
 
+   string linea, s;
+    getline(cin, linea);
+    while (linea != "---") {
+        s += linea[0];
+        getline(cin, linea);
+    }
+    cout << s << endl; 
 
-    cin >> x >> endl;
-    cout << x << endl;
+
 }
