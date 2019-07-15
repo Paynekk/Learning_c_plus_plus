@@ -18,5 +18,5 @@ int main(){
       n = aux;
       N--;
   }
-  cout << endl;
+  cout << n << endl;
 }
