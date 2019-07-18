@@ -12,7 +12,6 @@ using namespace std;
 int main (){
 int num = 0, num_max = 0;
 cin >> num;
-num_max = num;
 while(num != 0){
   if(num > num_max){
     num_max = num; 
