@@ -5,11 +5,11 @@ using namespace std;
 
 int main(){
   ifstream F;
-  F.open("texto.txt");
+  F.open("texto.txt"); // abriendo fichero
   int n;
   char c;
-  while (F >> n >> c){
+  while (F >> n >> c){ // condicion si es el typo de dato es true
     cout << n << ' ' << c << endl;
   }
-  F.close();
+  F.close(); // cerrando fichero
 }
