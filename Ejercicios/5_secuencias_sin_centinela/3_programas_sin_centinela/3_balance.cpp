@@ -75,18 +75,13 @@ int main(){
          mayor_ingreso = 0.0, mayor_gasto = 0.0;
   char  operador = ' ';
   string concepto = "", conm_gasto, conm_ingreso, fecha, fecha_gasto, fecha_ingreso;
-  // ___________________________________________________
-  
 
-  /* cin >> dia >> guion >> mes >> guion >> anyo >>
-      operador >> cantidad; */
   while (F >> fecha >> operador >> cantidad, getline(F, concepto)){
         
     cantidad_total(cantidad, operador, balance, cant_ingreso, cant_gasto);
     menor_mayor( cantidad,  operador,  concepto,fecha ,mayor_ingreso,
                   mayor_gasto,conm_gasto,conm_ingreso, fecha_gasto, fecha_ingreso);   
   }
-  
   F.close();
   cout << "Total ingreso: " << cant_ingreso << " . Total de gasto: " << cant_gasto << endl
        << "Balance total: " << balance << endl
