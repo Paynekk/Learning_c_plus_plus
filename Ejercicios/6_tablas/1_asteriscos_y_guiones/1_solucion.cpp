@@ -25,8 +25,3 @@ int main() {
 
 
 
-/* -----------------------
-2.-           k = k + 4
-      R[k]= false; R[k+1] = false;
-      R[k+2]= true; R[k+3] = true;  
- */
