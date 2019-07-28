@@ -15,11 +15,11 @@ _________________________________________
 #include <iostream>
 using namespace std;
 int main() {
-  int i = 0;
    bool R[40];
    // rellenar
-    for (int k = 0; k < 40;k = k ++){
+    for (int k = 0; k < 40;k++){
         R[k] = (k >= 20);
+
     }
    // mostrarC
     for (int k = 0; k < 40; k++) {
