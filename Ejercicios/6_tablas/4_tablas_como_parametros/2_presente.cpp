@@ -16,7 +16,6 @@ typedef int Lista[1000];
 bool presente(int x, const Lista& L){
     for(int i=0;i<1000;i++){
       if(L[i] == x){
-        cout << "se encontro" << endl;
         return true;
       }else if(i == 999 && L[i] != x){
         return false;
