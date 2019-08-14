@@ -11,8 +11,7 @@ typedef double Matriz[3][3];
 using namespace std;
 int main(){
   Matriz tabla[10];
-  
-  cout << tabla[10][3][3] << endl;
-  
+  tabla[0][2][2] = 3.3;
+  cout << tabla[0][2][2] << endl;
 }
 
