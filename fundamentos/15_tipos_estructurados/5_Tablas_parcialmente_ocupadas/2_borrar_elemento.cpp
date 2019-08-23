@@ -15,3 +15,8 @@ void mostrar(const Frase& F){
     cout << F.palabras[i];
   }
 }
+
+int main(){
+  Frase F = {{"uno","dos","tres","cuatro","cinto"},5};
+  mostrar(F);
+  cout << endl;
