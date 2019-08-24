@@ -3,6 +3,7 @@ Hay Álguien?
 
 Haz una función que cuenta cuantos elementos de una
  matriz de enteros de 20 por 20 son diferentes de 0.
+ -
 */
 
 
@@ -37,4 +38,5 @@ int main (){
   Matriz[3][4] = 2;
   Matriz[2][1] = 2;
   diferenteCero(Matriz, 20);
+
 }
