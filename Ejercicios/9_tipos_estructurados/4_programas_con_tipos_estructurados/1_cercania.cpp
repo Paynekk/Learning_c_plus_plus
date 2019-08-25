@@ -26,23 +26,31 @@ void mostrar_fichero(Poblacion poblaciones[],int tamanyo){
     cout << poblaciones[i].nombre << " " << poblaciones[i].cordenadaX << "," << poblaciones[i].cordenadaY << endl;
   }
 }
-void poblacion_cercana (Poblacion poblaciones[], int tamanyo){
-  double menor_distancia;
+void poblacion_cercana (Poblacion poblaciones[], int tamanyo, Poblacion po_cercanas[]){
+  double distancias, distancia_cercana = abs(poblaciones[0].cordenadaX - poblaciones[2].cordenadaX) + 
+                       abs(poblaciones[0].cordenadaY - poblaciones[2].cordenadaY);
   for(int i=0;i<tamanyo; i++){
 
-    for(int j=i+1;j<tamanyo; j++){
-     menor_distancia = abs(poblaciones[i].cordenadaX - poblaciones[i].cordenadaX) + 
-                       abs(poblaciones[i].cordenadaX - poblaciones[i].cordenadaX);
-                       cout << menor_distancia << endl;
-
+    for(int j=0;j<tamanyo; j++){
+      if( i != j){
+          distancias = abs(poblaciones[i].cordenadaX - poblaciones[j].cordenadaX) + 
+                       abs(poblaciones[i].cordenadaY - poblaciones[j].cordenadaY);
+        if(distancias < distancia_cercana){
+          distancia_cercana = distancias;
+          po_cercanas[0] = poblaciones[i];
+          po_cercanas[1] = poblaciones[j];
+        }        
+      }
     }
   }
+  cout << "Las poblaciones mas cercanas entre si son: " 
+       << po_cercanas[0].nombre << " y " << po_cercanas[1].nombre << endl;
 }
 
 int main(){
-  Poblacion poblaciones[100]; int tamanyo;
+  Poblacion poblaciones[100], po_cercanas[2]; int tamanyo;
   leer_fichero(poblaciones,tamanyo);
-  mostrar_fichero(poblaciones,tamanyo);
-  poblacion_cercana(poblaciones, tamanyo);
+  /* mostrar_fichero(poblaciones,tamanyo); */
+  poblacion_cercana(poblaciones, tamanyo, po_cercanas);
 
 }
