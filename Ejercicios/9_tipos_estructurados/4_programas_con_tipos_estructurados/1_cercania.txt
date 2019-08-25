@@ -1,0 +1,3 @@
+colima -1,1
+jalisco 1,-0.99
+zapopan -2,-4
