@@ -1,5 +1,0 @@
-Paris 15.7
-Barcelona 23.8
-El_Cairo 33.2
-Nueva_York 13.8
-amsterdam 21.00
