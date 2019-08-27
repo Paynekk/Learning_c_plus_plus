@@ -4,7 +4,7 @@ using namespace std;
 
 int main(){
   //       puede variar el nombre
-  ifstream fin("leer_un_fichero.txt");
+  ifstream fin("0_leer_un_fichero.txt");
   string nombre;
   int edad;
   fin >> nombre >> edad;
