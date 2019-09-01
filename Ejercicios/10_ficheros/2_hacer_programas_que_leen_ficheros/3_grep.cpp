@@ -39,38 +39,44 @@ void lineas_pal(string linea,string pal_linea[][100], int& cont_lin, int num_pal
     }
   }
   num_pal[cont_lin] = cont_pal;
-  cont_lin++; cout << tamanyo << " ";
-  cout << cont_lin;
+  cont_lin++;
 }
 
-void mostrar_lineas(string pal_linea[][100],const int num_pal[],const int& cont_lin){
+void mostrar_linea(string pal_linea[][100],const int num_pal[], int linea){
 
-for(int i=0; i < cont_lin;i++){
-  cout << num_pal[i] << " ";
-  for (int j = 0; j <= num_pal[i]; j++){
-    cout << pal_linea[i][j] << " ";
+for(int i=0; i <= num_pal[linea];i++){
+  cout << pal_linea[linea][i] << " ";
   }
   cout << endl;
-  }
 }
 
-void encontrar_palabra(string pal_linea[][100],const int num_pal[], const int& cont_lin){
-  
-for(int i=0; i < cont_lin;i++){
-  for (int j = 0; j <= num_pal[i]; j++){
-      
-  }
-  cout << endl;
+void encontrar_palabra( string pal_linea[][100],const int num_pal[], const int& cont_lin, string pal_clave){
+
+  for(int i=0; i < cont_lin;i++){    
+    for (int j = 0; j <= num_pal[i]; j++){
+      if(pal_linea[i][j] == pal_clave){
+        mostrar_linea(pal_linea,num_pal,i);
+        j = num_pal[i] + 1;
+      }  
+    }
   }
 }
 int main(){
 
-  string fichero, pal_clave,palabra , linea ,pal_linea[100][100]; int cont_lin=0, num_pal[50];
+  string fichero, pal_clave,palabra , linea ,pal_linea[100][100]; int cont_lin=0, num_pal[100];
   cin >> fichero >> pal_clave;
-  ifstream F(/* fichero.c_str() */"3_articulo.txt");
-  while(!F.eof()){
+  //          3_articulo.txt
+  ifstream F(fichero.c_str());
+  if(F.is_open()){
+    while(!F.eof()){
    getline(F, linea);
-   lineas_pal(linea,pal_linea,cont_lin, num_pal, pal_clave);
+   lineas_pal(linea,pal_linea,cont_lin, num_pal);
   }
-/* mostrar_lineas(pal_linea, num_pal, cont_lin); */
+  encontrar_palabra(pal_linea, num_pal,cont_lin, pal_clave);
+
+  }else{
+    cout << "No se pudo encontrar el fichero " << fichero << endl;
+  }
+  
+  
 }
