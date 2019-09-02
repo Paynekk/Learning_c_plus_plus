@@ -12,7 +12,7 @@ tenet shahs stats stets kaiak finif dewed
 #include <iostream>
 #include <fstream>
 using namespace std;
-void palabra_palindroma(string palabra,int  conteo){
+void palabra_palindroma(string palabra,int&  conteo){
   
 int tamanyo = palabra.size();
 int comp = palabra.size() -1;
@@ -27,7 +27,7 @@ int comp = palabra.size() -1;
     conteo++;
     if(conteo == 10 ){
       cout << palabra << endl;
-      conteo = 0
+      conteo = 0;
     }else{
       cout << palabra << " ";
     }
