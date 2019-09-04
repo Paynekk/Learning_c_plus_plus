@@ -17,7 +17,7 @@ Tabla del 2
 #include <fstream>
 using namespace std;
 int main(){
-ofstream F("tablas.txt", ofstream::app);
+ofstream F("3_tablas.txt", ofstream::app);
 
   for (int i = 1; i <= 10; i++){
     F << "Tabla del " << i << endl
