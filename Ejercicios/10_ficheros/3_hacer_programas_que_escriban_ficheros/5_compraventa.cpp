@@ -3,6 +3,7 @@ Haz un programa que lea un fichero compraventa.txt con el siguiente formato
 
 c100 v50 c25 v10 v5 c210 c5 v3
 v10 v10 c10 c20
+c1 v1 c1 v1 c1
 -----------------------------------------------------------------------------------------
 donde los números con una "c" delante son "compras" y los que tienen delante una "v" son "ventas". 
 El programa debe escribir un fichero contabilidad.txt donde se hagan las sumas de las compras y las 
@@ -29,7 +30,12 @@ cont = 0;
       }
   }
 }
-void muestra_ventas(string tabla[],const int cont){// esta funcion muestra las ventas y compras de cada linea
+
+void fichero_compra_venta(int compra, int venta){
+    ofstream F("contabilidad.txt", ofstream::app);
+    F << 'c' << compra << " v" << venta << endl;
+}
+void commpras_ventas(string tabla[],const int cont){// esta funcion muestra las ventas y compras de cada linea
   int compra=0, venta=0, suma_compra =0 ,suma_venta=0;
  
 for (int i = 0; i <= cont; i++){
@@ -43,31 +49,27 @@ for (int i = 0; i <= cont; i++){
     suma_compra +=  compra;
   }
 }
-cout << endl;
- cout <<  'c' << suma_compra << " v" << suma_venta <<endl;
+ fichero_compra_venta(suma_compra,suma_venta);
+
  }
-void leer_fichero(string nombre){// esta funcion lee fichero y muestra por pantalla las ventas y compras en total
-  string linea, tabla[100];     // de cada linea 
+
+
+
+int main(){
+    string nombre; string linea, tabla[100];
+    cin >> nombre;
+    nombre += ".txt";
   int cont = 0;
   fstream F(nombre.c_str());
   if(F.is_open()){
     while(!F.eof()){
       getline(F,linea);
       palabras_linea(linea, tabla, cont);
-      muestra_ventas(tabla, cont);
-      
-  }
+      commpras_ventas(tabla, cont);
+    }
   }else{
       cout << "No se pudo abrir el fichero " << nombre << endl;
   }
-  
-}
-
-
-int main(){
-    string nombre; 
-    cin >> nombre;
-    nombre += ".txt";
-    leer_fichero(nombre);
+      
 }
 
