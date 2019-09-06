@@ -32,7 +32,7 @@ cont = 0;
 }
 
 void fichero_compra_venta(int compra, int venta){
-    ofstream F("contabilidad.txt", ofstream::app);
+    ofstream F("5_contabilidad.txt", ofstream::app);
     F << 'c' << compra << " v" << venta << endl;
 }
 void commpras_ventas(string tabla[],const int cont){// esta funcion muestra las ventas y compras de cada linea
