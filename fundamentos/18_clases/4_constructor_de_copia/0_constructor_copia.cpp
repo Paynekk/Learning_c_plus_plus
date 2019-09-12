@@ -10,6 +10,7 @@ Fecha(const Fecha& F);// constructor copia------------------------
 // el constructor debe de llamarse igual que la clase y no tiene tipo de retorno
 void incrementa();
 };
+
 Fecha::Fecha(){
   dia = 1;
   mes = 1;
@@ -19,6 +20,12 @@ Fecha::Fecha(int d, int m, int a){
   dia = d;
   mes = m;
   anyo = a;
+}
+
+Fecha::Fecha(const Fecha& F){
+  dia = F.dia;
+  mes = F.mes;
+  anyo = F.anyo;
 }
 
 void Fecha::incrementa(){
