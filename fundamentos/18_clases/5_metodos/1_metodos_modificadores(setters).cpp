@@ -12,6 +12,12 @@ class Fecha{
     int dia() const;// consultor('getter')
     int mes() const;// consultor('getter')
     int anyo() const;// consultor('getter')
+/*---------------------------------------------*/
+// por lo regular llevan el nombre como set_day;
+    void cambia_dia(int d);// modificador('setter')
+    void cambia_mes(int m);// modificador('setter')
+    void cambia_anyo(int anyo);// modificador('setter')
+    void incrementa(int dias); // modificador(no es un 'setter')
 };
 
 Fecha::Fecha(){
@@ -35,15 +41,22 @@ Fecha::Fecha(const Fecha& F){
 int Fecha::dia() const {return _dia;}
 int Fecha::mes() const {return _mes;}
 int Fecha::anyo() const {return _anyo;}
-
-
-
-
+/*------------------------------------------------*/
+// metodos modificadores
+void Fecha::cambia_dia(int d){_dia = d;}
+void Fecha::cambia_mes(int m){
+  if(m >= 1 && m <= 12){
+    _mes = m;
+  }else{
+    cout << "Error al cambiar el mes" << endl;
+  }
+}
+void Fecha::cambia_anyo(int anyo){_dia = anyo;}
 
 int main(){
   Fecha a;
   Fecha b(5,12,1995);
   Fecha c(b);
 
-  cout << a.dia();
+cout << a.dia();
 }
