@@ -37,7 +37,7 @@ void Fecha::incrementa(){
   
    Fecha f(10,5,2001), g(21,2,1999), h;// h creo una fecha llamando al constructor por defecto
    // Fecha h() ./ existe una funcion h que devuelve una fecha
-   // solamente al declararse
+   
    Fecha k = f;// constructor de copia (v1)
    Fecha k2(f);// constructor de copia (v2s)
    f.incrementa();
