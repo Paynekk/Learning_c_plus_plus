@@ -25,7 +25,7 @@ Constructores: 1) con los límites, y que sitúa el ascensor en la posición má
   class Ascensor{
     int _limite_baja, _limite_alta;
     double _posicion;
-    int _pisos, _segundos;
+    int pisos_por_segundo;
     bool _ocupado;
     bool _parado;
     int _numeroPersonas;
@@ -35,8 +35,20 @@ Constructores: 1) con los límites, y que sitúa el ascensor en la posición má
       Ascensor();
       Ascensor(int limite_baja,int limite_alta);
 
-      /*functions*/
+      /*           setters                   */
       void menor(int limite_baja, int limite_alta);
+      int planta_ascensor(){ // function inline 
+        int planta = _posicion;
+        return planta;
+      }
+      /*          getters   inline                   */
+      bool ocupado()const{return _ocupado;};
+      int personas()const{return _numeroPersonas;}  
+      /*                                           */
+      void llamar_ascensor(int num_planta);
+      void entran_personas(int numero);
+      void salen_personas(int numero);
+      void comparar_planta(Ascensor& F);
   };
       /*functions  in  constructor*/
 
@@ -47,6 +59,7 @@ Constructores: 1) con los límites, y que sitúa el ascensor en la posición má
     _posicion = _limite_baja;
     _parado = true;
     _ocupado = false;
+    _numeroPersonas = 0;
   }
   Ascensor::Ascensor(int limite_baja, int limite_alta){
     _limite_baja = limite_baja;
@@ -54,4 +67,41 @@ Constructores: 1) con los límites, y que sitúa el ascensor en la posición má
     _limite_baja = _posicion;
     _parado = true;
     _ocupado = false;
+    _numeroPersonas = 0;
   }
+/**/
+void Ascensor::llamar_ascensor(int num_planta){
+  if(_ocupado != true){
+    pisos_por_segundo = 1;
+  }
+}
+
+void Ascensor::entran_personas(int numero){
+  if(_numeroPersonas + numero > 30){
+    cout << "error, solo pueden entrar  "  << 30 - _numeroPersonas << endl;
+  }else{
+    _numeroPersonas += numero;
+  }
+}
+
+void Ascensor::salen_personas(int numero){
+  if(numero > _numeroPersonas){
+    cout << "No existen" << numero << "de personas" << endl;
+    cout << "en el elevador existen "  << _numeroPersonas << endl; 
+  }else{
+    _numeroPersonas -= numero;
+  }
+ 
+}
+
+void Ascensor::comparar_planta(Ascensor& F){
+  if(planta_ascensor() == F.planta_ascensor()){
+    cout << "estan en la misma planta" << endl;
+  }else{
+    cout << "No estan en la misma planta " << endl;
+  }
+}
+int main(){
+  Ascensor uno, dos;
+  uno.comparar_planta(dos);
+}
